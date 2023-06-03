@@ -23,8 +23,11 @@
 </header>
 
 <main>
+    <div class="container">
+
 <h2>쿠폰번호</h2>
-<table border="1" id="table">
+<div class="col-md-6">
+<table border="1" id="table" class="table table-bordered border-black text-center">
 <tr>
 	<th>고객</th>
 	<th>음식점</th>
@@ -53,6 +56,8 @@ while (rs.next()) {
 rs.close();
 %>
 </table>
+</div>
+</div>
 </main>
 
 <footer>
@@ -61,4 +66,5 @@ rs.close();
 
 </body>
 <script src="js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

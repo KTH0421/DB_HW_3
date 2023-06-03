@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/table_style.css">
 
+
 </head>
 <div>
 
@@ -28,7 +29,7 @@
 <main>
 <h3>음식점</h3>
 <!-- 음식점 출력 -->
-<table border="1" id="table" class="table w-50 table-bordered border-black text-center">
+<table border="1" id="table" class="table table-bordered border-black text-center">
 <tr>
 	<th>ID</th>
 	<th>Name</th>
@@ -60,7 +61,7 @@ while (rs.next()) {
     <h3 class="text-start">메뉴</h3>   
     <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-6">
 
 <table border="1" id="table" class="table w-100 table-bordered border-black">
 <tr>
@@ -90,7 +91,7 @@ pstmt_1.close();
 </table>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
 <table border="1" id="table" class="table w-100 table-bordered border-black">
 <tr>
 	<th>음식점</th>
@@ -123,7 +124,7 @@ pstmt_2.close();
 </div>
 <div class="container text-center">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
 <table border="1" id="table" class="table w-100 table-bordered border-black">
     <thead>
 	<tr>
@@ -153,7 +154,7 @@ pstmt_3.close();
 %>
 </table>
 </div>
-<div class="col-md-3">
+<div class="col-md-6">
 <table border="1" id=table class="table w-100 table-bordered border-black">
 <tr>
 	<th>음식점</th>
@@ -194,7 +195,8 @@ conn.close();
 </form>
 </div>
 </div>
-asdfdghgfjkdfsdgfhg
+
 </footer>
 <script src="js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

@@ -31,7 +31,7 @@
 <!-- 주문할사람 선택 -->
 <label for="order">주문자</label>
 	<select name="name" id = order>
-		<option value="엄마">엄마</option>
+		<option value="부모">부모</option>
 		<option value="아들">아들</option>	
 		<option value="딸">딸</option>
 	
@@ -89,5 +89,6 @@ while (rs.next()) {
 
 </div>
 <script src="js/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
