@@ -22,11 +22,11 @@
 <%
 request.setCharacterEncoding("UTF-8");
 %>
+
 <!-- 주문한 고객의 이름을 받아옴 -->
 <%
 String name = request.getParameter("name");
 %>
-
 <div>
 <!-- 장바구니 페이지로 넘어감 -->
 <form method="post" action="info.jsp">
@@ -39,27 +39,27 @@ String[] selectedFoods = request.getParameterValues("food");
 
 // food_id가 선택되어 있다면, food_court,food_price를 DB에서 검색합니다.
 if(selectedFoods != null) {
+	if(rs.next()) {
 
+		// 쿠폰 번호 생성
+		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		int codeLength = 8;
+
+		Random random = new Random();
+		StringBuilder couponCode = new StringBuilder(codeLength);
+		for (int i = 0; i < codeLength; i++) {
+			int randomIndex = random.nextInt(characters.length());
+			char randomChar = characters.charAt(randomIndex);
+			couponCode.append(randomChar);
+			
+		}
 	for (String foodId : selectedFoods) {
 		String sql = "SELECT food_name, food_price, food_court FROM food WHERE food_id = " + foodId;
 
 	    // 쿼리 실행 후 결과를 받아옵니다.
 	    PreparedStatement pstmt = conn.prepareStatement(sql);
 	    ResultSet rs = pstmt.executeQuery();
-	    if(rs.next()) {
 
-	    		// 쿠폰 번호 생성
-	    		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	    		int codeLength = 8;
-
-	    		Random random = new Random();
-	    		StringBuilder couponCode = new StringBuilder(codeLength);
-	    		for (int i = 0; i < codeLength; i++) {
-	    		    int randomIndex = random.nextInt(characters.length());
-	    		    char randomChar = characters.charAt(randomIndex);
-	    		    couponCode.append(randomChar);
-	    		    
-	    		}
 	    	String randomString = couponCode.toString();		//랜덤 쿠폰번호
 	        String foodName = rs.getString("food_name");		//음식이름 변수
 	        int foodPrice = rs.getInt("food_price");			//음식가격 변수
@@ -70,7 +70,7 @@ if(selectedFoods != null) {
 		    PreparedStatement pstmt_1 = conn.prepareStatement(sql_1);
 		    ResultSet rs_1 = pstmt.executeQuery();
 
-	    	pstmt_1.setString(1,name);
+	    	<!-- pstmt_1.setString(1,name); -->
 	        pstmt_1.setString(2, foodName);
 	        pstmt_1.setInt(3, foodPrice);
 	        pstmt_1.setString(4, foodCourt);

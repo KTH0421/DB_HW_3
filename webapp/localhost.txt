@@ -1,1 +1,1 @@
-http://localhost:8088/DB_hw/src/main/webapp/main.jsp
+http://localhost:8088/DB_hw_2/src/main/webapp/main.jsp
