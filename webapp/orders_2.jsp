@@ -67,8 +67,8 @@ while (rs.next()) {
 
         <label>
         <%
-        out.println("<div class=\"card\" style=\"width: 15rem; height: 260px;\">");
-            out.print("<img src=\"" + rs_1.getString("food_img") + "\" class=\"card-img-top\">");
+        out.println("<div class=\"card\" style=\"width: 220px;\">");
+            out.print("<img src=\"" + rs_1.getString("food_img") + "\" class=\"card-img-top\" style=\"width: 220px; height: 220px;\">");
             out.print("<div class=\"card-body\">");
             out.print("<h5 class=\"card-title\">" + rs_1.getString("food_name") +"\t" +"<input type='checkbox' name='food' value='" + food_id + "'/>"+"</h5>");
             out.print("<p class=\"card-text\">"+rs_1.getString("food_price")+"</p>");
