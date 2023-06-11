@@ -10,16 +10,6 @@
   	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
-  <!-- <div class="container">
-	<nav>
-		<ul>
-        <li><a href="main.jsp">메뉴판</a></li>
-        <li><a href="orders_2.jsp">주문</a></li>
-        <li><a href="info.jsp">장바구니</a></li>
-        <li><a href="coupon2.jsp">쿠폰</a></li>
-      </ul>
-	</nav>
-</div> -->
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,17 +20,6 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
               <li class="nav-item"><a class="nav-link active" aria-current="page" href="main.jsp">MENU</a></li>
               <li class="nav-item"><a class="nav-link active" aria-current="page" href="orders_2.jsp">Order</a></li>
-              <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="orders_2.jsp" role="button" data-bs-toggle="dropdown" aria-expanded="false">Orders</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="">상하이</a></li>
-
-                      <li><a class="dropdown-item" href="#!">한성면옥</a></li>
-                      <li><a class="dropdown-item" href="#!">전주한식</a></li>
-                      <li><a class="dropdown-item" href="#!">돈이돈가스</a></li>
-                    </ul>
-              </li> -->
-              
           </ul>
           <form class="d-flex" action="info.jsp">
               <button class="btn btn-outline-dark " type="submit">

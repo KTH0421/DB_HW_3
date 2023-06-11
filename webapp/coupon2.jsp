@@ -24,7 +24,7 @@
 
 <main>
     <div class="container">
-
+<!-- 테이블에 쿠폰번호 출력 -->
 <h2>쿠폰번호</h2>
 <div class="col-md-6">
 <table border="1" id="table" class="table table-bordered border-black text-center">
@@ -34,8 +34,8 @@
 	<th>음식</th>
 	<th>가격</th>
 	<th>주문번호</th>
-
 </tr>
+
 <%
 //SQL 실행
 String sql = "SELECT * FROM orders ORDER BY cus_name desc;;";
@@ -43,7 +43,6 @@ PreparedStatement pstmt = conn.prepareStatement(sql);
 ResultSet rs = pstmt.executeQuery();
 
 // orders table 출력
-
 while (rs.next()) {	
     out.println("<tr>");
     out.print("<td>" + rs.getString("cus_name") + "</td>");

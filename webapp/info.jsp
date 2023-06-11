@@ -19,7 +19,7 @@
 <body>
 <div class="container">
 <header>
-   
+
 <h2>장바구니</h2>
 <hr>
 </header>
@@ -28,23 +28,19 @@
 <ol>
 
 <%
-//db세팅
-
-
 //sql문
 String sql = "select * from orders ORDER BY cus_name desc;";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 ResultSet rs = pstmt.executeQuery();
-     
-// 주문한 음식의 이름, 가격 출력
+
+//주문한 음식의 이름, 가격 출력
 while (rs.next()) {
     out.println("<li>");
 	out.print("<span>" + rs.getString("cus_name")+ ":" + "</span>");
     out.print("<span>" + rs.getString("fc_name") + ":" +"</span>");
     out.print("<span>" + rs.getString("food_name") + ":" +"</span>");
     out.print("<span>" + rs.getString("food_price") + "</span>");
-    out.println("</li>");
-    
+    out.println("</li>");    
 }       
 %>
 

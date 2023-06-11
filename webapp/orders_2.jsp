@@ -38,14 +38,13 @@
 	</select>
 <br>
 
-
-
 <ul>
 <%
-//db 세팅
-
-// SQL 실행
 //푸드코트별 음식 출력
+//SQL 실행
+
+//음식점 출력 될때마다 음식점별 메뉴 정보를 카드에 출력
+
 String sql = "SELECT * FROM food_court;";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 ResultSet rs = pstmt.executeQuery();
@@ -55,7 +54,7 @@ while (rs.next()) {
 	
     String sql_1 = "SELECT food_id, food_name, food_price, food_img FROM food WHERE food_court = ?;";
     PreparedStatement pstmt_1 = conn.prepareStatement(sql_1);
-    pstmt_1.setString(1, rs.getString("fc_name")); // ?에 음식점 이름(fc_name)을 설정
+    pstmt_1.setString(1, rs.getString("fc_name"));
     ResultSet rs_1 = pstmt_1.executeQuery();
 %>
     <div class="card-group">

@@ -3,8 +3,8 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ include file="nav.jsp" %>
-<%@ include file="db_setting.jsp" %>
+<%@ include file="nav.jsp" %>               <!--네비게이션바 파일 include -->
+<%@ include file="db_setting.jsp" %>        <!-- db세팅 코드 include -->
 
 <!DOCTYPE html>
 <html>
@@ -62,7 +62,7 @@ while (rs.next()) {
     <div class="row">
 
     <div class="col-md-6">
-
+<!-- 상하이 메뉴 출력 -->
 <table border="1" id="table" class="table w-100 table-bordered border-black">
 <tr>
 	<th>음식점</th>
@@ -90,7 +90,7 @@ pstmt_1.close();
 %>
 </table>
 </div>
-
+<!-- 한성면옥 음식 출력 -->
 <div class="col-md-6">
 <table border="1" id="table" class="table w-100 table-bordered border-black">
 <tr>
@@ -125,6 +125,8 @@ pstmt_2.close();
 <div class="container text-center">
     <div class="row">
         <div class="col-md-6">
+
+<!-- 전주한식 음식 출력 -->
 <table border="1" id="table" class="table w-100 table-bordered border-black">
     <thead>
 	<tr>
@@ -155,6 +157,8 @@ pstmt_3.close();
 </table>
 </div>
 <div class="col-md-6">
+
+<!-- 돈이돈가스 음식 출력 -->
 <table border="1" id=table class="table w-100 table-bordered border-black">
 <tr>
 	<th>음식점</th>
