@@ -28,27 +28,27 @@ request.setCharacterEncoding("UTF-8");
 String name = request.getParameter("name");
 %>
 <div>
-<!-- 장바구니 페이지로 넘어감 -->
-<form method="post" action="info.jsp">
+//버튼을 누르면 info.jsp로 이동
+	<form method="post" action="info.jsp">
 
 <ul>
 
 <%   
-// foodid를 받아옴
+// foodid를 foon라는 이름으로 받아 selectedFoods라는 배열에 저장
 String[] selectedFoods = request.getParameterValues("food");
 
-// food_id가 선택되어 있다면, food_court,food_price를 DB에서 검색합니다.
+// food_id가 선택되어 있을때 foodid로 db에서 정보를 뽑아옴
 if(selectedFoods != null) {
 
 	for (String foodId : selectedFoods) {
 		String sql = "SELECT food_name, food_price, food_court FROM food WHERE food_id = " + foodId;
 
-	    // 쿼리 실행 후 결과를 받아옵니다.
+	    //쿼리 실행 후 결과 저장
 	    PreparedStatement pstmt = conn.prepareStatement(sql);
 	    ResultSet rs = pstmt.executeQuery();
+		//rs값이 있으면
 		if(rs.next()) {
-
-			// 쿠폰 번호 생성
+			// 선택한 음식 하나마다 랜덤 쿠폰 번호 생성
 			String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 			int codeLength = 8;
 	
@@ -58,14 +58,14 @@ if(selectedFoods != null) {
 				int randomIndex = random.nextInt(characters.length());
 				char randomChar = characters.charAt(randomIndex);
 				couponCode.append(randomChar);
-				
 			}
+
 	    	String randomString = couponCode.toString();		//랜덤 쿠폰번호
 	        String foodName = rs.getString("food_name");		//음식이름 변수
 	        int foodPrice = rs.getInt("food_price");			//음식가격 변수
 	        String foodCourt = rs.getString("food_court");		//음식점 변수
 	        
-// 	        orders.jsp에서 받아온 값들을 db에 insert
+			//orders.jsp에서 받아온 값들을 db에 insert
 			String sql_1 = "INSERT INTO orders (cus_name,food_name,food_price, fc_name, coupon_num) VALUES (?,?,?,?,?)";
 		    PreparedStatement pstmt_1 = conn.prepareStatement(sql_1);
 		    ResultSet rs_1 = pstmt.executeQuery();

@@ -26,7 +26,7 @@
 </header>
 <main>
 <div class="container">
-
+//버튼을 누르면 insert_values2.jsp 로 값을 넘김
 <form method="post" action="insert_values2.jsp" accept-charset="utf-8" id="orderForm">
 <!-- 주문할사람 선택 -->
 <label for="order">주문자</label>
@@ -48,7 +48,7 @@
 String sql = "SELECT * FROM food_court;";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 ResultSet rs = pstmt.executeQuery();
-
+//db에서 음식점이름을 받아와서  p태그 안에 출력하고 rs에 저장된 음식점 이름과 db에 저장된 음식점의 이름이 같으면 정보를 rs_1에 저장
 while (rs.next()) {
     out.print("<p>" + rs.getString("fc_name") + "</p>");
 	
@@ -57,18 +57,24 @@ while (rs.next()) {
     pstmt_1.setString(1, rs.getString("fc_name"));
     ResultSet rs_1 = pstmt_1.executeQuery();
 %>
+
+//rs_1에 저장된 정보를 카드에 출력한다
     <div class="card-group">
 
         <%
         while (rs_1.next()) {
     	String food_id = rs_1.getString("food_id");
         %>
-
+        //라벨로 묶어 사진이나 텍스트를 클릭해도 체크박스가 선택되도록함
+        //jsp 태그안에서 출력하기위해 out.print안에 html 엘리먼트들을 넣음
         <label>
         <%
         out.println("<div class=\"card\" style=\"width: 220px;\">");
+            //카드에 이미지를 넣고 크기를 지정해준다 
             out.print("<img src=\"" + rs_1.getString("food_img") + "\" class=\"card-img-top\" style=\"width: 220px; height: 220px;\">");
+            //카드 body 안에 음식이름과 가격, 체크박스를 출력
             out.print("<div class=\"card-body\">");
+            //체크박스를 클릭하면 음식의 foodid를 food 라는 이름으로 보냄
             out.print("<h5 class=\"card-title\">" + rs_1.getString("food_name") +"\t" +"<input type='checkbox' name='food' value='" + food_id + "'/>"+"</h5>");
             out.print("<p class=\"card-text\">"+rs_1.getString("food_price")+"</p>");
             out.print("</div>");

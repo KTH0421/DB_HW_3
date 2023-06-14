@@ -38,6 +38,7 @@
 
 <%
 //SQL 실행
+//orders 테이블에서 고객이름 내림차순으로 모든정보를 rs에 저장
 String sql = "SELECT * FROM orders ORDER BY cus_name desc;;";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 ResultSet rs = pstmt.executeQuery();
